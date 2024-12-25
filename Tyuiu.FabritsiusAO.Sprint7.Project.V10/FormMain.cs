@@ -13,7 +13,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
         string openFilePath;
         public bool fileOpened = false;
 
-        //Общая функция поиска
+        //Поиск
         public void Search(DataGridView dataGrid, string searchValue, int searchableValue)
         {
             dataGrid.ClearSelection();
@@ -30,19 +30,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
                 }
             }
         }
-
-        //Общее сокрытие рядов
-        public void InvisibleRowsByColors(DataGridView dataGrid, Color color, bool rowVisibility)
-        {
-            foreach (DataGridViewRow row in dataGrid.Rows)
-            {
-                if (row.Cells[0].Style.BackColor == color)
-                {
-                    row.Visible = rowVisibility;
-                }
-            }
-        }
-        //Переключение видимости кнопок редактирования строк
+        //Переключение активности кнопок редактирования строк
         private void tabControlTable_FAO_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.tabControlTable_FAO.SelectedIndex == 1 && fileOpened)
@@ -67,7 +55,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
             }
         }
 
-        //Поиск
+        //Поиск по заказу | ID пользователя
         private void buttonReadOnlySearchOrderID_FAO_Click(object sender, EventArgs e)
         {
             string searchValue = textBoxReadOnlySearchOrderID_FAO.Text;
@@ -89,7 +77,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
             Search(dataGridViewEdit_FAO, searchValue, 1);
         }
 
-
+        //Режим удаления строк
         private void checkBoxMarkRow_FAO_Checked(object sender, EventArgs e)
         {
             if (checkBoxMarkRow_FAO.CheckState == CheckState.Checked)
@@ -114,7 +102,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
                 cell.Style.BackColor = Color.Aqua;
             }
         }
-        //Окрашивание ячейки при изменении
+        //Окрашивание ячейки при изменении в ней данных
         private void dataGridViewEdit_FAO_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -131,7 +119,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
                 cell.Tag = cell.Value;
             }
         }
-
+        // Сохранение предыдущих значений
         private void dataGridViewEdit_FAO_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -251,6 +239,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
             }
         }
 
+        //Сохранение файла
         private void buttonSaveFile_FAO_Click(object sender, EventArgs e)
         {
 

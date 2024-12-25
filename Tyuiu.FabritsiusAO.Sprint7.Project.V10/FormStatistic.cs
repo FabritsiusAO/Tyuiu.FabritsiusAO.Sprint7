@@ -31,6 +31,7 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
             return columnArray;
         }
 
+        //Считывание ячеек с таблицы
         private static string[] GetStringCellsFromColumn(int column)
         {
             string[] columnArray = new string[mainFormDataGrid.RowCount];
@@ -59,11 +60,11 @@ namespace Tyuiu.FabritsiusAO.Sprint7.Project.V10
             return repetition;
         }
 
-        public static double GetAverageStatFromColumn(int column) => Math.Round(GetIntCellsFromColumn(column).Average(), 3);
-        public static int GetMaxStatFromColumn(int column) => GetIntCellsFromColumn(column).Max();
-        public static int GetMinStatFromColumn(int column) => GetIntCellsFromColumn(column).Min();
-        public static int GetCountStatFromColumn(int column) => GetIntCellsFromColumn(column).Count();
+        public static double GetAverageStatFromColumn(int column) => Math.Round(GetIntCellsFromColumn(column).Average(), 3); //Вычисление среднего
+        public static int GetMaxStatFromColumn(int column) => GetIntCellsFromColumn(column).Max(); //Вычисление максимума
+        public static int GetMinStatFromColumn(int column) => GetIntCellsFromColumn(column).Min(); //Вычисления минимума
 
+        //Создание статистики
         private void FormStatistics_Load(object sender, EventArgs e)
         {
             int InTransitCount = 0;

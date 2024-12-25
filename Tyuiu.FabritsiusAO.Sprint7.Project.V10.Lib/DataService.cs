@@ -4,6 +4,7 @@
     {
         public string[,] GetMatrix(string path)
         {
+            // Считывание данных из файла
             int rows = File.ReadLines(path).Count();
             string[] strings = File.ReadAllText(path).Split("\n");
             int columns = strings[0].Split(';').Length;
